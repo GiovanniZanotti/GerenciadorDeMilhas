@@ -1,0 +1,175 @@
+
+.modal.show .modal-dialog {
+    max-width: 1600px;
+}
+
+.modal-content {
+  margin: 0 auto;
+}
+
+.box {
+  margin: 0 !important;
+}
+
+.conta-corrente {
+  margin: 0 0 0 74.5%;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+  width: min-content;
+}
+
+.form-control {
+  width: 300px;
+}
+
+.form-group {
+  margin: 20px 30px 0 0;
+}
+
+.form-group-email {
+  width: auto;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0 0 20px 0;
+  margin: 0 0 15px 0;
+}
+
+.form-cliente-total {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #e1e5e8;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+}
+
+.form-total {
+  border: 1px solid #e1e5e8;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  padding: 20px;
+}
+
+.formulario {
+  width: 700px;
+  margin: 100px 30px 0 30px;
+}
+
+.box-total {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.lista-emails {
+  width: 800px;
+}
+
+.col-md-8 {
+  margin: 0 auto;
+}
+
+*{box-sizing: border-box;}
+body{
+  padding: 3em;
+}
+nav{
+    width: 20%;
+    min-width: 200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: -1;
+}
+
+.botao-remover {
+  margin: 0 0 0 auto;
+}
+
+.opcoes i {
+  font-size: 17px;
+}
+
+.emails:active ul {
+  display: block;
+  width: auto;
+  padding:5px;
+}
+
+h1{
+  position: relative;
+  display: inline-block;
+  font: 18px/1em sans-serif;
+  cursor: pointer;
+  user-select: none;
+  height: 2.1em;
+}
+h1:after{
+  content:"";
+  border: 10px solid transparent;
+  border-top-color: #ccc;
+  position: absolute;
+  right: -30px;
+  top: 15px;
+}
+
+ul{
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 1%;
+  position: absolute;
+  z-index: 999;
+  top: -1.5em;
+  margin: 70px 0 0 0;
+  display: none;
+}
+
+li{
+ padding: 3% 5%;
+ border-top: 1px solid #fff;
+ border-bottom: 1px solid #ddd;
+ cursor: pointer;
+}
+li:first-child{border-top: none;}
+li:last-child{border-bottom: none;}
+li:hover{background: linear-gradient(#eee,#ddd);}
+
+
+.modal-content {
+  margin: 0 auto 50px auto;
+}
+
+
+
+i {
+  font-size: 25px;
+}
+
+.iconesSociais a {
+  color: rgb(94, 94, 94);
+}
+
+.capitalize {
+text-transform: capitalize;
+border-bottom: 1px solid silver;
+}
+
+
+@media (min-width: 768px) {
+  .col-md-12 {
+      -ms-flex: none !important;
+      flex: none !important;
+      max-width: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-md-12 {
+      -ms-flex: none !important;
+      flex: none !important;
+      max-width: none !important;
+  }
+}

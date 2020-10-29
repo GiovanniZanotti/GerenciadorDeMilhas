@@ -1,0 +1,652 @@
+
+<!-- ############################ -->
+
+
+<app-titulo [titulo]="titulo"></app-titulo>
+
+<div *ngIf="contaCorrente">
+  <button [routerLink]="['/edicao', idCliente, 'conta-corrente']" class="conta-corrente btn btn-outline-primary">
+    Conta Corrente
+  </button>
+</div>
+<div *ngIf="!contaCorrente">
+  <button class="conta-corrente btn btn-outline-primary">
+   Adicionar Conta Corrente
+  </button>
+</div>
+
+<form [formGroup]="registerForm">
+  <div class="row">
+    <div class="col-md-8">
+  <div>
+  <tabset>
+    <tab heading="Clientes">
+
+      <div class="form-cliente-total">
+      
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Nome</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('nome').errors && registerForm.get('nome').touched}"
+            formControlName="nome" placeholder="Nome">
+          <div *ngIf="registerForm.get('nome').hasError('required') && registerForm.get('nome').touched"
+            class="invalid-feedback">
+            O nome é obrigatório!
+          </div>
+          <div *ngIf="registerForm.get('nome').hasError('minlength') && registerForm.get('nome').touched"
+            class="invalid-feedback">
+            O nome deve ter no mínimo 4 caracteres.
+          </div>
+          <div *ngIf="registerForm.get('nome').hasError('maxlength') && registerForm.get('nome').touched"
+            class="invalid-feedback">
+            O nome deve ter no máximo 50 caracteres.
+          </div>
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label>Endereço</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('endereco').errors && registerForm.get('endereco').touched}"
+            formControlName="endereco" placeholder="Endereço">
+          <div *ngIf="registerForm.get('endereco').hasError('required') && registerForm.get('endereco').touched"
+            class="invalid-feedback">
+            O Endereço é obrigatório!
+          </div>
+        </div>
+  
+      </div>
+
+      <div class="form-row">
+  
+        <div class="form-group col-md-12">
+          <label>Bairro</label>
+          <input type="text" class="form-control"[ngClass]="{'is-invalid': registerForm.get('bairro').errors && registerForm.get('bairro').touched}"
+            formControlName="bairro" placeholder="Bairro">
+          <div *ngIf="registerForm.get('bairro').hasError('required') && registerForm.get('bairro').touched"
+            class="invalid-feedback">
+            O Bairro é obrigatório!
+          </div>
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label>Cidade</label>
+          <input type="text" class="form-control"[ngClass]="{'is-invalid': registerForm.get('cidade').errors && registerForm.get('cidade').touched}"
+            formControlName="cidade" placeholder="Cidade">
+          <div *ngIf="registerForm.get('cidade').hasError('required') && registerForm.get('cidade').touched"
+            class="invalid-feedback">
+            A Cidade é obrigatória!
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="form-row">
+  
+        <div class="form-group col-md-12">
+          <label>Numero</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('numero').errors && registerForm.get('numero').touched}"
+            formControlName="numero" placeholder="Numero">
+          <div *ngIf="registerForm.get('numero').hasError('required') && registerForm.get('numero').touched"
+            class="invalid-feedback">
+            O Numero é obrigatório!
+          </div>
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label>UF</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('uf').errors && registerForm.get('uf').touched}" 
+            formControlName="uf" placeholder="UF">
+          <div *ngIf="registerForm.get('uf').hasError('required') && registerForm.get('uf').touched"
+            class="invalid-feedback">
+            O UF é obrigatório!
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="form-row">
+  
+        <div class="form-group col-md-12">
+          <label>País</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('pais').errors && registerForm.get('pais').touched}" 
+            formControlName="pais" placeholder="País">
+          <div *ngIf="registerForm.get('pais').hasError('required') && registerForm.get('pais').touched"
+            class="invalid-feedback">
+            O País é obrigatório!
+          </div>
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label>Complemento</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('complemento').errors && registerForm.get('complemento').touched}" 
+             formControlName="complemento" placeholder="Complemento">
+          <div *ngIf="registerForm.get('complemento').hasError('required') && registerForm.get('complemento').touched"
+            class="invalid-feedback">
+            O Complemento é obrigatório!
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="form-row">
+  
+        <div class="form-group col-md-12">
+          <label>Skype</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('skype').errors && registerForm.get('skype').touched}" 
+            formControlName="skype" placeholder="Skype">
+          <div *ngIf="registerForm.get('skype').hasError('required') && registerForm.get('skype').touched"
+            class="invalid-feedback">
+            O Skype é obrigatório!
+          </div>
+          <div *ngIf="registerForm.get('skype').hasError('skype')
+          && registerForm.get('skype').touched" class="invalid-feedback">
+                Deve ser um skype válido.
+          </div>
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label>Status</label>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('status').errors && registerForm.get('status').touched}" 
+            formControlName="status" placeholder="Status">
+          <div *ngIf="registerForm.get('status').hasError('required') && registerForm.get('status').touched" class="invalid-feedback">
+            O Status é obrigatório!
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="form-row">
+  
+        <div class="form-group col-md-12">
+  
+          <label>Data e Hora</label>
+          <input type="text" class="form-control" bsDatepicker value="{{data | DateTimeFormatPipe}}" [(ngModel)]="data"
+            [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm' }" [ngClass]="{'is-invalid': registerForm.get('data').errors 
+        && registerForm.get('data').touched}" formControlName="data" placeholder="Data">
+          <div *ngIf="registerForm.get('data').hasError('required')
+        && registerForm.get('data').touched" class="invalid-feedback">
+            Data e hora é obrigatório.
+          </div>
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label>RG</label>
+          <input type="text" class="form-control"
+            [ngClass]="{'is-invalid': registerForm.get('rg').errors && registerForm.get('rg').touched}"
+            formControlName="rg" placeholder="RG">
+          <div *ngIf="registerForm.get('rg').hasError('required') && registerForm.get('rg').touched"
+            class="invalid-feedback">
+            O RG é obrigatório!
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>CPF</label>
+          <input type="text" class="form-control"
+            [ngClass]="{'is-invalid': registerForm.get('cpf').errors && registerForm.get('cpf').touched}"
+            formControlName="cpf" placeholder="CPF">
+          <div *ngIf="registerForm.get('rg').hasError('required') && registerForm.get('cpf').touched"
+            class="invalid-feedback">
+            O CPF é obrigatório!
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    </tab>
+
+      <tab heading="Emails">
+
+      <div class="form-total">
+
+        <table class="table table-striped">
+            <thead class="thead-light">
+              <tr>
+                <th>#</th>
+                <th>Endereço</th>
+                <th>Boleto</th>
+                <th>Nota</th>
+                <th>Comunicado</th>
+                <th>Opções</th>
+              </tr>
+            </thead>
+    
+            
+            <tbody class="lista-clientes" *ngIf="emails && emails.length" lista>
+              <tr class="clientes" *ngFor="let email of emailsForm.controls let i = index" >
+                <td>{{emailsForm.get(i+'.id').value}}</td>
+                <td>{{emailsForm.get(i+'.endereco').value}}</td>
+                <td>{{emailsForm.get(i+'.boleto').value}}</td>
+                <td>{{emailsForm.get(i+'.nota').value}}</td>
+                <td>{{emailsForm.get(i+'.comunicado').value}}</td>
+                
+                <td>
+                  <div class="btn-group">
+                    <button class="opcoes btn btn-sm btn-success" (click)="editarEmail(emailsForm.controls[i])" tooltip="Editar">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button class="opcoes btn btn-sm btn-danger" tooltip="Excluir" (click)="openModalDelete(cliente)">
+                      <i class="fa fa-eraser"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            
+            <tfoot *ngIf="!telefones.length">
+              <tr>
+                <td colspan="7" class="text-center">
+                  <h4>
+                    Nenhum Telefone encontrado!
+                  </h4>
+                </td>
+              </tr>
+            </tfoot>
+    
+          </table>
+
+
+          <div>
+              <div formArrayName="emails" *ngFor="let email of emailsForm.controls let i = index">
+                <fieldset [formGroupName]="i" *ngIf="seleciona(emailsForm.controls[i].value.id,'email')" class="form-group-email form-group">
+                  <legend class="d-flex justify-content-between">
+                    {{ emailsForm.get(i+'.endereco').value === '' ?
+                    'Email' :
+                    emailsForm.get(i+'.endereco').value
+                  }}
+                    <button (click)="removerEmails(i)" class="botao-remover btn btn-sm btn-warning mb-1">Remover</button>
+                  </legend>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Endereco</label>
+                      <input type="text" class="form-control" formControlName="endereco" placeholder="Endereço"
+                      [ngClass]="{'is-invalid': emailsForm.get(i+'.endereco').errors && emailsForm.get(i+'.endereco').touched}">
+                      <div *ngIf="emailsForm.get(i+'.endereco').hasError('required') && emailsForm.get(i+'.endereco').touched"
+                        class="invalid-feedback">
+                        O Endereco é obrigatório!
+                      </div>
+                      <div *ngIf="emailsForm.get(i+'.endereco').hasError('email') && emailsForm.get(i+'.endereco').touched"
+                        class="invalid-feedback">
+                        O Endereco deve ser válido!
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Boleto</label>
+                      <input type="text" class="form-control" formControlName="boleto" placeholder="Boleto"
+                      [ngClass]="{'is-invalid': emailsForm.get(i+'.boleto').errors && emailsForm.get(i+'.boleto').touched}">
+                      <div *ngIf="emailsForm.get(i+'.boleto').hasError('required') && emailsForm.get(i+'.boleto').touched"
+                        class="invalid-feedback">
+                        O Boleto é obrigatório!
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Nota</label>
+                      <input type="text" class="form-control" formControlName="nota" placeholder="Nota"
+                      [ngClass]="{'is-invalid': emailsForm.get(i+'.nota').errors && emailsForm.get(i+'.nota').touched}">
+                      <div *ngIf="emailsForm.get(i+'.nota').hasError('required') && emailsForm.get(i+'.nota').touched"
+                        class="invalid-feedback">
+                        A Nota é obrigatória!
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Comunicado</label>
+                      <input type="text" class="form-control" formControlName="comunicado" placeholder="Comunicado"
+                      [ngClass]="{'is-invalid': emailsForm.get(i+'.comunicado').errors && emailsForm.get(i+'.comunicado').touched}">
+                      <div *ngIf="emailsForm.get(i+'.comunicado').hasError('required') && emailsForm.get(i+'.comunicado').touched"
+                        class="invalid-feedback">
+                        O Comunicado é obrigatório!
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <button (click)="adicionarEmail()" class="btn btn-outline-primary">
+                Adicionar Email
+              </button>
+            </div>
+
+          </div>
+
+      </tab>
+
+    <tab heading="Telefones">
+
+        <div class="form-total">
+
+      
+      <table class="table table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>#</th>
+            <th>Numero</th>
+            <th>DDD</th>
+            <th>Ramal</th>
+            <th>Operadora</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+
+        <tbody class="lista-clientes" *ngIf="telefones && telefones.length" lista>
+          <tr class="clientes" *ngFor="let telefone of telefonesForm.controls let i = index" >
+            <td>{{telefonesForm.get(i+'.id').value}}</td>
+            <td>{{telefonesForm.get(i+'.numero').value}}</td>
+            <td>{{telefonesForm.get(i+'.ddd').value}}</td>
+            <td>{{telefonesForm.get(i+'.ramal').value}}</td>
+            <td>{{telefonesForm.get(i+'.operadora').value}}</td>
+            
+            <td>
+              <div class="btn-group">
+                <button class="opcoes btn btn-sm btn-success" (click)="editarTelefone(telefonesForm.controls[i])" tooltip="Editar">
+                  <i class="fa fa-edit"></i>
+                </button>
+                <button class="opcoes btn btn-sm btn-danger" tooltip="Excluir" (click)="openModalDelete(cliente)">
+                  <i class="fa fa-eraser"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        
+        <tfoot *ngIf="!telefones.length">
+          <tr>
+            <td colspan="7" class="text-center">
+              <h4>
+                Nenhum Telefone encontrado!
+              </h4>
+            </td>
+          </tr>
+        </tfoot>
+
+      </table>
+
+      
+       <div>
+          <div formArrayName="telefones" *ngFor="let telefone of telefonesForm.controls let i = index">
+            <fieldset [formGroupName]="i" *ngIf="seleciona(telefonesForm.controls[i].value.id,'telefone')" class="form-group-email form-group">
+              <legend class="d-flex justify-content-between">
+                {{ telefonesForm.get(i+'.numero').value === '' ?
+                'Telefone' :
+                telefonesForm.get(i+'.numero').value
+              }}
+                <button (click)="removerTelefones(i)" class="botao-remover btn btn-sm btn-warning mb-1">Remover</button>
+              </legend>
+              <div class="row">
+
+                  <div class="form-group col-md-6">
+                      <label>Numero</label>
+                      <input type="text" class="form-control" formControlName="numero" placeholder="Numero"
+                      [ngClass]="{'is-invalid': telefonesForm.get(i+'.numero').errors && telefonesForm.get(i+'.numero').touched}">
+                      <div *ngIf="telefonesForm.get(i+'.numero').hasError('required') && telefonesForm.get(i+'.numero').touched"
+                        class="invalid-feedback">
+                        O Numero é obrigatório!
+                      </div>
+                    </div>
+                  <div class="form-group col-md-6">
+                    <label>DDD</label>
+                    <input type="text" class="form-control" formControlName="ddd" placeholder="DDD"
+                    [ngClass]="{'is-invalid': telefonesForm.get(i+'.ddd').errors && telefonesForm.get(i+'.ddd').touched}">
+                    <div *ngIf="telefonesForm.get(i+'.ddd').hasError('required') && telefonesForm.get(i+'.ddd').touched"
+                      class="invalid-feedback">
+                      O DDD é obrigatório!
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Ramal</label>
+                    <input type="text" class="form-control" formControlName="ramal" placeholder="Ramal"
+                    [ngClass]="{'is-invalid': telefonesForm.get(i+'.ramal').errors && telefonesForm.get(i+'.ramal').touched}">
+                    <div *ngIf="telefonesForm.get(i+'.ramal').hasError('required') && telefonesForm.get(i+'.ramal').touched"
+                      class="invalid-feedback">
+                      O Ramal é obrigatório!
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Operadora</label>
+                    <input type="text" class="form-control" formControlName="operadora" placeholder="Operadora"
+                    [ngClass]="{'is-invalid': telefonesForm.get(i+'.operadora').errors && telefonesForm.get(i+'.operadora').touched}">
+                    <div *ngIf="telefonesForm.get(i+'.operadora').hasError('required') && telefonesForm.get(i+'.operadora').touched"
+                      class="invalid-feedback">
+                      A Operadora é obrigatória!
+                    </div>
+                  </div>
+
+            </div>
+            </fieldset>
+          </div>
+          <button (click)="adicionarTelefone()" class="btn btn-outline-primary">
+            Adicionar Telefone
+          </button>
+        </div>
+
+        </div>
+
+      </tab>
+
+      <tab heading="Acesso Clientes">
+
+          <div class="form-total">
+        
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th>#</th>
+              <th>Login</th>
+              <th>Senha</th>
+              <th>Observações</th>
+              <th>Opções</th>
+            </tr>
+          </thead>
+  
+          
+          <tbody class="lista-clientes" *ngIf="acessoClientes && acessoClientes.length" lista>
+            <tr class="clientes" *ngFor="let acessoCliente of acessoClientesForm.controls let i = index" >
+              <td>{{acessoClientesForm.get(i+'.id').value}}</td>
+              <td>{{acessoClientesForm.get(i+'.login').value}}</td>
+              <td>{{acessoClientesForm.get(i+'.senha').value}}</td>
+              <td>{{acessoClientesForm.get(i+'.observacoes').value}}</td>
+              
+              <td>
+                <div class="btn-group">
+                  <button class="opcoes btn btn-sm btn-success" (click)="editarAcessoCliente(acessoClientesForm.controls[i])" tooltip="Editar">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="opcoes btn btn-sm btn-danger" tooltip="Excluir" (click)="openModalDelete(cliente)">
+                    <i class="fa fa-eraser"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          
+          <tfoot *ngIf="!acessoClientes.length">
+            <tr>
+              <td colspan="7" class="text-center">
+                <h4>
+                  Nenhum Acesso de Cliente encontrado!
+                </h4>
+              </td>
+            </tr>
+          </tfoot>
+  
+        </table>
+  
+        
+         <div>
+            <div formArrayName="acessoClientes" *ngFor="let acessoCliente of acessoClientesForm.controls let i = index">
+              <fieldset [formGroupName]="i" *ngIf="seleciona(acessoClientesForm.controls[i].value.id,'acessoCliente')" class="form-group-email form-group">
+                <legend class="d-flex justify-content-between">
+                  {{ acessoClientesForm.get(i+'.login').value === '' ?
+                  'Acesso Cliente' :
+                  acessoClientesForm.get(i+'.login').value
+                }}
+                  <button (click)="removerAcessoCliente(i)" class="botao-remover btn btn-sm btn-warning mb-1">Remover</button>
+                </legend>
+                <div class="row">
+  
+                    <div class="form-group col-md-6">
+                        <label>Login</label>
+                        <input type="text" class="form-control" formControlName="login" placeholder="Login"
+                        [ngClass]="{'is-invalid': acessoClientesForm.get(i+'.login').errors && acessoClientesForm.get(i+'.login').touched}">
+                        <div *ngIf="acessoClientesForm.get(i+'.login').hasError('required') && acessoClientesForm.get(i+'.login').touched"
+                          class="invalid-feedback">
+                          O Login é obrigatório!
+                        </div>
+                      </div>
+                    <div class="form-group col-md-6">
+                      <label>Senha</label>
+                      <input type="text" class="form-control" formControlName="senha" placeholder="Senha"
+                      [ngClass]="{'is-invalid': acessoClientesForm.get(i+'.senha').errors && acessoClientesForm.get(i+'.senha').touched}">
+                      <div *ngIf="acessoClientesForm.get(i+'.senha').hasError('required') && acessoClientesForm.get(i+'.senha').touched"
+                        class="invalid-feedback">
+                        A Senha é obrigatória!
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Observações</label>
+                      <input type="text" class="form-control" formControlName="observacoes" placeholder="Observações"
+                      [ngClass]="{'is-invalid': acessoClientesForm.get(i+'.observacoes').errors && acessoClientesForm.get(i+'.observacoes').touched}">
+                      <div *ngIf="acessoClientesForm.get(i+'.observacoes').hasError('required') && acessoClientesForm.get(i+'.observacoes').touched"
+                        class="invalid-feedback">
+                        As Observações são obrigatórias!
+                      </div>
+                    </div>
+  
+              </div>
+              </fieldset>
+            </div>
+            <button (click)="adicionarAcessoCliente()" class="btn btn-outline-primary">
+              Adicionar Acesso
+            </button>
+          </div>
+
+        </div>
+  
+        </tab>
+
+        <tab heading="Historicos">
+
+        <div class="form-total">
+        
+          <table class="table table-striped">
+            <thead class="thead-light">
+              <tr>
+                <th>#</th>
+                <th>Assunto</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Opções</th>
+              </tr>
+            </thead>
+    
+            
+            <tbody class="lista-clientes" *ngIf="historicos && historicos.length" lista>
+              <tr class="clientes" *ngFor="let historico of historicosForm.controls let i = index" >
+                <td>{{historicosForm.get(i+'.id').value}}</td>
+                <td>{{historicosForm.get(i+'.assunto').value}}</td>
+                <td>{{historicosForm.get(i+'.descricao').value}}</td>
+                <td>{{historicosForm.get(i+'.data').value}}</td>
+                
+                <td>
+                  <div class="btn-group">
+                    <button class="opcoes btn btn-sm btn-success" (click)="editarHistorico(historicosForm.controls[i])" tooltip="Editar">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button class="opcoes btn btn-sm btn-danger" tooltip="Excluir" (click)="openModalDelete(cliente)">
+                      <i class="fa fa-eraser"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            
+            <tfoot *ngIf="!historicos.length">
+              <tr>
+                <td colspan="7" class="text-center">
+                  <h4>
+                    Nenhum Histórico encontrado!
+                  </h4>
+                </td>
+              </tr>
+            </tfoot>
+    
+          </table>
+    
+          
+           <div>
+              <div formArrayName="historicos" *ngFor="let historico of historicosForm.controls let i = index">
+                <fieldset [formGroupName]="i" *ngIf="seleciona(historicosForm.controls[i].value.id,'historico')" class="form-group-email form-group">
+                  <legend class="d-flex justify-content-between">
+                    {{ historicosForm.get(i+'.assunto').value === '' ?
+                    'Histórico' :
+                    historicosForm.get(i+'.assunto').value
+                  }}
+                    <button (click)="removerHistorico(i)" class="botao-remover btn btn-sm btn-warning mb-1">Remover</button>
+                  </legend>
+                  <div class="row">
+    
+                    <!-- 
+                      <div class="form-group col-md-6">
+                          <label>Assunto</label>
+                          <input type="text" class="form-control" formControlName="assunto" placeholder="Assunto"
+                          [ngClass]="{'is-invalid': historicosForm.get(i+'.assunto').errors && historicosForm.get(i+'.assunto').touched}">
+                          <div *ngIf="historicosForm.get(i+'.assunto').hasError('required') && historicosForm.get(i+'.assunto').touched"
+                            class="invalid-feedback">
+                            O Assunto é obrigatório!
+                          </div>
+                        </div>
+                         -->
+                         <div class="form-group col-md-6">
+                          <label>Assunto</label>
+                          <input type="text" class="form-control" formControlName="assunto" placeholder="Assunto">
+                        </div>
+                        
+                      <div class="form-group col-md-6">
+                        <label>Descrição</label>
+                        <input type="text" class="form-control" formControlName="descricao" placeholder="Descrição"
+                        [ngClass]="{'is-invalid': historicosForm.get(i+'.descricao').errors && historicosForm.get(i+'.descricao').touched}">
+                        <div *ngIf="historicosForm.get(i+'.descricao').hasError('required') && historicosForm.get(i+'.descricao').touched"
+                          class="invalid-feedback">
+                          A Descrição é obrigatória!
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Data</label>
+                        <input type="text" class="form-control" bsDatepicker value="{{historicosForm.get(i+'.data').value | DateTimeFormatPipe}}" formControlName="data" 
+                        [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm' }" placeholder="Data"
+                        [ngClass]="{'is-invalid': historicosForm.get(i+'.data').errors && historicosForm.get(i+'.data').touched}">
+                        <div *ngIf="historicosForm.get(i+'.data').hasError('required') && historicosForm.get(i+'.data').touched"
+                          class="invalid-feedback">
+                          A Data é obrigatória!
+                        </div>
+                      </div>
+    
+                </div>
+                </fieldset>
+              </div>
+              <button (click)="adicionarHistorico()" class="btn btn-outline-primary">
+                Adicionar Acesso
+              </button>
+            </div>
+
+            </div>
+    
+          </tab>
+
+      </tabset>
+
+ 
+  <div class="row">
+      <div class="col-md-12 d-flex justify-content-end">
+         <!-- {{registerForm.value | json}} -->
+        <button [disabled]="!registerForm.valid" (click)="salvarAlteracao()" class="btn btn-success my-2" >Salvar
+          Alterações</button>
+      </div>
+    </div>
+    
+
+</div>
+
+</div>
+</div>
+</form>
